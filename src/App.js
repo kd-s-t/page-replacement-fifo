@@ -3,11 +3,9 @@ import FIFO from './components/FIFO';
 
 function App() {
   return (
-    <div>
-      <div className="container">
-        <FIFO />
-      </div>
-    </div>
+  <div className="container">
+    <FIFO />
+  </div>
   );
 }
 

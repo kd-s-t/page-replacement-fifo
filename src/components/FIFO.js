@@ -1,8 +1,7 @@
 import React , { Component } from 'react'
 import Typing from 'react-typing-animation';
 
-
-class Optimal extends Component {
+class FIFO extends Component {
   constructor(props) {
     super(props)
 
@@ -313,4 +312,4 @@ class Optimal extends Component {
   }
 }
 
-export default Optimal
+export default FIFO
