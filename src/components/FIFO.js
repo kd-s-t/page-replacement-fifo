@@ -101,7 +101,7 @@ class Optimal extends Component {
     this.setState({hit_count:hit_count})
     this.setState({fault_count:fault_count})
     
-    let interval_time = (this.state.given.length*3)+(this.state.given.length*2)
+    let interval_time = this.state.given.length*2
 
     setTimeout(function(){ 
       this.setState({loading:false}) 
@@ -119,14 +119,19 @@ class Optimal extends Component {
     return str
   }
 
-  updateGiven(e, val,i){
-    e.preventDefault()
+  updateGiven(val,i){
     let o = this.state.given
-    o[i] = val
-    this.setState({o}) 
-    console.log(val)
-    // console.log(val)
-    // console.log(i)
+
+    let int = parseInt(val)
+
+    if(Number.isInteger(int) && int !== ''){
+      if(int > 0){
+        int = String(int).charAt(0)
+        int = Number(int)
+        o[i] = int
+        this.setState({given:o}) 
+      }
+    }
   }
 
   addGiven(e){
@@ -167,7 +172,7 @@ class Optimal extends Component {
                         </div>
                         <input type="number" className="form-control" 
                           value={val}
-                          onChange={(e) => this.updateGiven(e, val, i)}
+                          onChange={(e) => this.updateGiven(e.target.value, i)}
                         />
                       </div>
                     )
@@ -293,14 +298,14 @@ class Optimal extends Component {
           <br/><br/>
 
           <blockquote className="blockquote text-right">
-            <p className="mb-0"><a href="https://www.youtube.com/watch?v=FWoMSiMep80&t=820s">Page replacement Introduction| FIFO page replacement algorithm with example| Operating System</a></p>
+            <p className="mb-0"><a href="https://www.youtube.com/watch?v=FWoMSiMep80">Page replacement Introduction| FIFO page replacement algorithm with example| Operating System</a></p>
             <footer className="blockquote-footer">Credits to <cite title="Source Title">Jenny's lectures CS/IT NET&JRF</cite></footer>
           </blockquote>
 
           <br/><br/>
 
           <blockquote className="blockquote text-right">
-            <p className="mb-0"><a href="https://www.youtube.com/watch?v=FWoMSiMep80&t=820s">Page Replacement FIFO - Memory Management Program Simulation</a></p>
+            <p className="mb-0"><a href="https://github.com/kenntinio/page-replacement-fifo">Page Replacement FIFO - Memory Management Program Simulation</a></p>
             <footer className="blockquote-footer">Develop by <cite title="Source Title"><a href="https://github.com/kenntinio">Kenn Tinio</a></cite></footer>
           </blockquote>
       </div>
